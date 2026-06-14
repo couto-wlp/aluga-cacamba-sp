@@ -32,7 +32,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
 	</head>
 	<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-primary selection:text-accent">
 		<!-- Header / Nav (Sticky & backdrop-blur on subpages, scrolling overlay on homepage) -->
-		<header id="main-header" class={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b ${isHome ? 'bg-transparent border-transparent text-white' : 'bg-white/90 backdrop-blur-md border-slate-200/80 text-slate-850 shadow-sm'}`}>
+		<header id="main-header" class={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b ${isHome ? 'bg-transparent border-transparent text-white pt-6' : 'bg-white/90 backdrop-blur-md border-slate-200/80 text-slate-850 shadow-sm pt-0'}`}>
 			<div class="container mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
 				<a href="/" class="flex items-center gap-3 font-black text-xl tracking-tight hover:scale-105 active:scale-95 transition-all duration-200">
 					<!-- Custom construction dumpster/skip SVG Logo (Yellow bg, Blue container) -->
@@ -239,13 +239,13 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
 			if (isHome && header) {
 				function handleScroll() {
 					if (window.scrollY > 50) {
-						header.classList.remove('bg-transparent', 'border-transparent', 'text-white');
-						header.classList.add('bg-white/90', 'backdrop-blur-md', 'border-slate-200/80', 'text-slate-850', 'shadow-sm');
+						header.classList.remove('bg-transparent', 'border-transparent', 'text-white', 'pt-6');
+						header.classList.add('bg-white/90', 'backdrop-blur-md', 'border-slate-200/80', 'text-slate-850', 'shadow-sm', 'pt-0');
 						menuBtnElement?.classList.remove('text-white', 'border-white/20', 'hover:bg-white/10');
 						menuBtnElement?.classList.add('text-slate-800', 'border-slate-200', 'hover:bg-slate-100');
 					} else {
-						header.classList.remove('bg-white/90', 'backdrop-blur-md', 'border-slate-200/80', 'text-slate-850', 'shadow-sm');
-						header.classList.add('bg-transparent', 'border-transparent', 'text-white');
+						header.classList.remove('bg-white/90', 'backdrop-blur-md', 'border-slate-200/80', 'text-slate-850', 'shadow-sm', 'pt-0');
+						header.classList.add('bg-transparent', 'border-transparent', 'text-white', 'pt-6');
 						menuBtnElement?.classList.remove('text-slate-800', 'border-slate-200', 'hover:bg-slate-100');
 						menuBtnElement?.classList.add('text-white', 'border-white/20', 'hover:bg-white/10');
 					}
