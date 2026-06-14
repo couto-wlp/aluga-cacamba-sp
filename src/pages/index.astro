@@ -1,0 +1,323 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import { SITE_CONFIG } from '../data/config';
+
+const services = await getCollection('servicos');
+// Take first 3 services for summary homepage display
+const homepageServices = services.slice(0, 3);
+---
+
+<Layout title="Aluguel de Caçamba de Entulho SP | Aluga Caçamba SP">
+	<!-- 1. Hero Section (Scale check, mt-10 CTA spacing, micro-interactions, split 50/50 with image) -->
+	<section id="inicio" class="relative overflow-hidden bg-gradient-to-b from-slate-100 to-white border-b border-slate-200/60 py-20 md:py-24">
+		<!-- Graphic accents -->
+		<div class="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[140px] pointer-events-none"></div>
+		<div class="absolute bottom-0 left-10 w-[300px] h-[300px] bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
+ 
+		<div class="container mx-auto px-6 md:px-12 relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+				<!-- Left Column: Content (50% / cols 6) -->
+				<div class="lg:col-span-6 text-left">
+					<!-- Hero Tag -->
+					<span class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-black bg-secondary/10 text-secondary mb-8 border border-secondary/20 uppercase tracking-widest">
+						🏆 Líder em Aluguel de Caçambas SP
+					</span>
+					
+					<!-- H1 typography control (font-black text-4xl sm:text-5xl md:text-[52px] tracking-tighter) -->
+					<h1 class="text-4xl sm:text-5xl lg:text-[52px] font-black text-slate-900 tracking-tighter leading-tight">
+						Aluguel de Caçambas para Entulho em SP com <span class="text-secondary">Entrega Rápida</span>
+					</h1>
+					
+					<p class="text-base md:text-lg text-slate-655 mt-6 leading-relaxed">
+						Fornecemos caçambas estacionárias licenciadas pela prefeitura para descarte correto e ecológico do entulho de sua obra ou reforma.
+					</p>
+					
+					<!-- Buttons with hover scale and mt-10 spacing -->
+					<div class="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+						<a href={SITE_CONFIG.whatsapp.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-base font-black bg-primary text-accent hover:bg-yellow-400 hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/30">
+							<!-- Hollow Black WhatsApp SVG -->
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0 fill-accent" viewBox="0 0 24 24">
+								<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.5-5.719-1.455L0 24zm6.59-4.846c1.6.95 3.498 1.453 5.418 1.454h.005c5.548 0 10.061-4.515 10.064-10.067.002-2.69-1.043-5.22-2.943-7.123C17.23 1.516 14.7 1.011 12.008 1.01 6.458 1.01 1.947 5.524 1.944 11.077c-.001 1.916.501 3.788 1.457 5.4l-.956 3.493 3.585-.94c1.552.846 3.298 1.291 5.068 1.291z M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+							</svg>
+							Orçamento no WhatsApp
+						</a>
+						<a href="/servicos" class="inline-flex items-center justify-center px-8 py-4 rounded-xl text-base font-black border border-slate-300 text-slate-700 hover:bg-slate-50 hover:scale-105 active:scale-95 transition-all duration-200">
+							Ver Serviços
+						</a>
+					</div>
+				</div>
+				
+				<!-- Right Column: Image (50% / cols 6) -->
+				<div class="lg:col-span-6 relative">
+					<div class="relative max-w-md mx-auto lg:max-w-none">
+						<img src="/cacamba-sobre.png" alt="Aluguel de Caçamba Entulho São Paulo" class="rounded-3xl shadow-xl w-full object-cover h-[300px] md:h-[400px]" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 2. Diferenciais Section (Grid gap-10/12, Cards p-10/12, micro-interactions) -->
+	<section id="diferenciais" class="bg-slate-50 border-b border-slate-100">
+		<div class="container mx-auto px-6 md:px-12">
+			<div class="text-center max-w-3xl mx-auto mb-16">
+				<h2 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter mb-4 leading-tight">
+					Diferenciais Que Fazem a Diferença
+				</h2>
+				<p class="text-lg text-slate-650">
+					Qualidade de agência, comprometimento com a legalidade e agilidade em sua obra.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+				<!-- Card 1 -->
+				<div class="bg-white rounded-3xl border border-slate-200/40 p-8 shadow-sm hover:scale-105 hover:shadow-xl hover:border-slate-350 transition-all duration-300 cursor-pointer flex flex-col justify-between">
+					<div>
+						<div class="w-14 h-14 rounded-2xl bg-secondary text-primary font-bold text-2xl flex items-center justify-center mb-6">
+							⚡
+						</div>
+						<h3 class="text-lg font-bold text-slate-900 mb-3">Entrega em até 2h</h3>
+						<p class="text-xs text-slate-600 leading-relaxed">
+							Frota própria e logística inteligente para entregar sua caçamba no local em tempo recorde.
+						</p>
+					</div>
+				</div>
+
+				<!-- Card 2 -->
+				<div class="bg-white rounded-3xl border border-slate-200/40 p-8 shadow-sm hover:scale-105 hover:shadow-xl hover:border-slate-350 transition-all duration-300 cursor-pointer flex flex-col justify-between">
+					<div>
+						<div class="w-14 h-14 rounded-2xl bg-secondary text-primary font-bold text-2xl flex items-center justify-center mb-6">
+							📋
+						</div>
+						<h3 class="text-lg font-bold text-slate-900 mb-3">Homologado LIMPURB</h3>
+						<p class="text-xs text-slate-600 leading-relaxed">
+							Licenciamento oficial completo na prefeitura de São Paulo. Garantia de emissão do CTR para sua obra.
+						</p>
+					</div>
+				</div>
+
+				<!-- Card 3 -->
+				<div class="bg-white rounded-3xl border border-slate-200/40 p-8 shadow-sm hover:scale-105 hover:shadow-xl hover:border-slate-350 transition-all duration-300 cursor-pointer flex flex-col justify-between">
+					<div>
+						<div class="w-14 h-14 rounded-2xl bg-secondary text-white flex items-center justify-center mb-6">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+							</svg>
+						</div>
+						<h3 class="text-lg font-bold text-slate-900 mb-3">Suporte 24 Horas</h3>
+						<p class="text-xs text-slate-600 leading-relaxed">
+							Atendimento ininterrupto via WhatsApp para emergências de obras, agendamentos e trocas de caçambas.
+						</p>
+					</div>
+				</div>
+
+				<!-- Card 4 -->
+				<div class="bg-white rounded-3xl border border-slate-200/40 p-8 shadow-sm hover:scale-105 hover:shadow-xl hover:border-slate-350 transition-all duration-300 cursor-pointer flex flex-col justify-between">
+					<div>
+						<div class="w-14 h-14 rounded-2xl bg-secondary text-primary font-bold text-2xl flex items-center justify-center mb-6">
+							💰
+						</div>
+						<h3 class="text-lg font-bold text-slate-900 mb-3">Melhor Preço SP</h3>
+						<p class="text-xs text-slate-600 leading-relaxed">
+							Orçamentos justos e competitivos. Cobrimos ofertas credenciadas e facilitamos no Pix e cartão de crédito.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 3. Sobre Nós Resumo Section (Visão geral + link) -->
+	<section id="sobre-resumo" class="bg-white border-b border-slate-100 py-24 md:py-32">
+		<div class="container mx-auto px-6 md:px-12">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+				
+				<!-- Left Column: Image with overlapping Experience badge (cols 5) -->
+				<div class="lg:col-span-5 relative pr-6 pb-6 lg:pr-0 lg:pb-0">
+					<div class="relative max-w-md mx-auto lg:max-w-none">
+						<!-- Image block -->
+						<img src="/cacamba-sobre.png" alt="Caçamba de Entulho Aluga Caçamba SP" class="rounded-3xl shadow-xl w-full object-cover h-[350px] md:h-[450px]" />
+						
+						<!-- Yellow overlapping experience badge in bottom-right corner -->
+						<div class="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 bg-primary text-accent px-8 py-6 rounded-3xl shadow-lg border border-primary/20 hover:scale-105 transition-transform duration-300 select-none">
+							<p class="text-4xl md:text-5xl font-black tracking-tight leading-none">15+</p>
+							<p class="text-[11px] font-black uppercase tracking-wider mt-2 text-slate-800 leading-tight">
+								Anos de<br />Experiência
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Right Column: Text & Link (cols 7) -->
+				<div class="lg:col-span-7 flex flex-col justify-center">
+					<h2 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter leading-tight mb-8">
+						Especialistas em Logística e <span class="text-secondary">Descarte Legalizado</span>
+					</h2>
+					
+					<p class="text-base md:text-lg text-slate-600 leading-relaxed mb-6">
+						Desde nossa fundação, trabalhamos para ser o alicerce operacional de obras residenciais e comerciais em São Paulo. Nossa história é marcada pelo compromisso com a agilidade urbana e a destinação ecológica certificada.
+					</p>
+					
+					<p class="text-base md:text-lg text-slate-600 leading-relaxed mb-8">
+						Não apenas alugamos caçambas estacionárias, entregamos tranquilidade para o construtor e total conformidade com a legislação da LIMPURB e prefeitura. Conheça nossa trajetória completa.
+					</p>
+					
+					<div>
+						<a href="/sobre" class="inline-flex items-center gap-2 font-black text-base text-secondary hover:text-amber-500 hover:scale-105 active:scale-95 transition-all duration-200 group">
+							Conheça nossa História 
+							<span class="group-hover:translate-x-1.5 transition-transform duration-200">&rarr;</span>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- 4. Nossas Caçambas Section (Cards p-10/12, gap-10/12, micro-interactions) -->
+	<section id="servicos" class="bg-slate-50 border-b border-slate-100">
+		<div class="container mx-auto px-6 md:px-12">
+			<div class="text-center max-w-3xl mx-auto mb-16">
+				<h2 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter mb-4 leading-tight">
+					Nossos Modelos de Caçambas
+				</h2>
+				<p class="text-lg text-slate-650">
+					Equipamentos ideais e aprovados pela prefeitura para atender reformas de qualquer proporção.
+				</p>
+			</div>
+
+			<!-- Grid with gap-10/12 -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-16">
+				{homepageServices.map((service) => (
+					<div class="bg-white rounded-3xl border border-slate-200/50 p-10 md:p-12 hover:scale-105 hover:shadow-xl hover:border-slate-350 transition-all duration-300 flex flex-col justify-between">
+						<div>
+							<span class="inline-block px-3 py-1.5 rounded-lg text-xs font-black bg-secondary/10 text-secondary mb-6">
+								{service.data.capacity}
+							</span>
+							<h3 class="text-2xl font-bold text-slate-900 mb-4">{service.data.title}</h3>
+							<p class="text-sm text-slate-600 mb-6 leading-relaxed">
+								{service.data.description}
+							</p>
+						</div>
+						<div class="space-y-3">
+							<a href={`/servicos/${service.slug}`} class="inline-flex items-center justify-center w-full py-3 rounded-xl font-bold border border-slate-200 text-slate-700 hover:bg-slate-50 hover:scale-105 active:scale-95 transition-all text-sm">
+								Especificações
+							</a>
+						</div>
+					</div>
+				))}
+			</div>
+
+			<div class="text-center">
+				<a href="/servicos" class="inline-flex items-center justify-center px-8 py-4 rounded-xl text-base font-black bg-accent text-white hover:bg-slate-800 hover:scale-105 active:scale-95 transition-all duration-200">
+					Ver Todos os Modelos
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- 5. Depoimentos Section (3 cards p-10/12) -->
+	<section id="depoimentos" class="bg-white border-b border-slate-100">
+		<div class="container mx-auto px-6 md:px-12">
+			<div class="text-center max-w-3xl mx-auto mb-16">
+				<h2 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter mb-4 leading-tight">
+					Quem Aluga, Recomenda
+				</h2>
+				<p class="text-lg text-slate-605">
+					A satisfação de quem constrói e reforma com segurança e agilidade.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+				<!-- Testimonial 1 -->
+				<div class="bg-slate-50 rounded-3xl border border-slate-200/50 p-10 md:p-12 shadow-sm hover:scale-105 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+					<div>
+						<div class="flex gap-1 text-primary text-lg mb-6">★★★★★</div>
+						<p class="text-sm italic text-slate-700 leading-relaxed mb-8">
+							"Serviço nota 10! Precisei de uma caçamba de última hora para a limpeza do quintal e eles me atenderam super rápido. Entrega e retirada dentro do prazo combinado, sem nenhuma dor de cabeça. Recomendo de olhos fechados!"
+						</p>
+					</div>
+					<div class="flex items-center gap-4 border-t border-slate-200/60 pt-6">
+						<img src="/fernando-silva.png" alt="Fernando Silva" class="w-12 h-12 rounded-full object-cover border border-slate-200" />
+						<div>
+							<h4 class="font-bold text-slate-900 text-sm">Fernando Silva</h4>
+							<p class="text-xs text-slate-550">Arquiteto - Studio F</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Testimonial 2 -->
+				<div class="bg-slate-50 rounded-3xl border border-slate-200/50 p-10 md:p-12 shadow-sm hover:scale-105 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+					<div>
+						<div class="flex gap-1 text-primary text-lg mb-6">★★★★★</div>
+						<p class="text-sm italic text-slate-700 leading-relaxed mb-8">
+							"Empresa séria e muito profissional. Cumprem o que prometem no horário e no preço. Com certeza voltarei a contratar nas próximas obras!"
+						</p>
+					</div>
+					<div class="flex items-center gap-4 border-t border-slate-200/60 pt-6">
+						<img src="/mariana-costa.png" alt="Mariana Costa" class="w-12 h-12 rounded-full object-cover border border-slate-200" />
+						<div>
+							<h4 class="font-bold text-slate-900 text-sm">Mariana Costa</h4>
+							<p class="text-xs text-slate-550">Proprietária Residencial</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Testimonial 3 -->
+				<div class="bg-slate-50 rounded-3xl border border-slate-200/50 p-10 md:p-12 shadow-sm hover:scale-105 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+					<div>
+						<div class="flex gap-1 text-primary text-lg mb-6">★★★★★</div>
+						<p class="text-sm italic text-slate-700 leading-relaxed mb-8">
+							"Excelente custo-benefício! O preço foi o melhor que encontrei na região e o atendimento pelo WhatsApp foi muito educado e prestativo. A caçamba foi colocada exatamente onde pedi, com todo o cuidado para não estragar a calçada."
+						</p>
+					</div>
+					<div class="flex items-center gap-4 border-t border-slate-200/60 pt-6">
+						<img src="/julio-oliveira.png" alt="Julio Oliveira" class="w-12 h-12 rounded-full object-cover border border-slate-200" />
+						<div>
+							<h4 class="font-bold text-slate-900 text-sm">Julio Oliveira</h4>
+							<p class="text-xs text-slate-550">Mestre de Obras</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 6. Chamada de Contato (CTA) Section (Phase 5 Polish: text-primary title, text-slate-100 body, high contrast) -->
+	<section id="contato" class="bg-slate-900 text-white relative overflow-hidden">
+		<!-- Background Glow -->
+		<div class="absolute -bottom-20 -left-20 w-[450px] h-[450px] bg-primary/10 rounded-full blur-[110px] pointer-events-none"></div>
+
+		<div class="container mx-auto px-6 md:px-12 relative z-10">
+			<div class="bg-slate-800 rounded-3xl border border-slate-700/60 p-10 md:p-12 max-w-4xl mx-auto shadow-2xl">
+				<div class="text-center mb-10">
+					<span class="inline-block px-3 py-1 rounded-md text-xs font-black bg-primary text-accent uppercase tracking-wider mb-4">
+						Orçamento Rápido
+					</span>
+					<!-- Heading in text-primary -->
+					<h2 class="text-3xl md:text-4xl font-black text-primary tracking-tighter mb-4 leading-tight">
+						Agende Sua Entrega Hoje Mesmo
+					</h2>
+					<!-- Paragraph body text in text-slate-100 (high contrast) -->
+					<p class="text-slate-100 text-sm md:text-base max-w-lg mx-auto leading-relaxed">
+						Precisa de caçamba em São Paulo? Fale conosco agora pelo WhatsApp ou ligue diretamente no nosso fixo. Respondemos rapidamente.
+					</p>
+				</div>
+
+				<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+					<a href={SITE_CONFIG.whatsapp.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-base font-black bg-primary text-accent hover:bg-yellow-400 hover:scale-105 active:scale-95 transition-all duration-200 w-full md:w-auto shadow-xl shadow-primary/20">
+						<!-- Hollow Black WhatsApp SVG -->
+						<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0 fill-accent" viewBox="0 0 24 24">
+							<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.5-5.719-1.455L0 24zm6.59-4.846c1.6.95 3.498 1.453 5.418 1.454h.005c5.548 0 10.061-4.515 10.064-10.067.002-2.69-1.043-5.22-2.943-7.123C17.23 1.516 14.7 1.011 12.008 1.01 6.458 1.01 1.947 5.524 1.944 11.077c-.001 1.916.501 3.788 1.457 5.4l-.956 3.493 3.585-.94c1.552.846 3.298 1.291 5.068 1.291z M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+						</svg>
+						Conversar no WhatsApp
+					</a>
+					<a href={`tel:${SITE_CONFIG.phone.number}`} class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-black border border-slate-650 text-white hover:bg-slate-700 hover:scale-105 active:scale-95 transition-all duration-200 w-full md:w-auto">
+						📞 Ligar Agora
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
