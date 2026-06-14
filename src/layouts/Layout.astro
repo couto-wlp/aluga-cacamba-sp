@@ -1,0 +1,214 @@
+---
+import SEO from '../components/SEO.astro';
+import SchemaLocalBusiness from '../components/SchemaLocalBusiness.astro';
+import WhatsAppBtn from '../components/WhatsAppBtn.astro';
+import { SITE_CONFIG } from '../data/config';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- SEO Meta & Structuring -->
+		<SEO title={title} description={description} />
+		<SchemaLocalBusiness />
+
+		<!-- Google Fonts - Inter -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+	</head>
+	<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-primary selection:text-accent">
+		<!-- Header / Nav (Sticky & backdrop-blur) -->
+		<header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-slate-200/80 transition-all duration-300">
+			<div class="container mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+				<a href="/" class="flex items-center gap-3 font-black text-xl tracking-tight text-secondary hover:scale-105 active:scale-95 transition-all duration-200">
+					<!-- Custom construction dumpster/skip SVG Logo (Yellow bg, Blue container) -->
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-secondary bg-primary p-2.5 rounded-xl flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M2 6h20v2H2z" />
+						<path stroke-linecap="round" stroke-linejoin="round" d="M4 8l3 11h10l3-11" />
+						<path stroke-linecap="round" stroke-linejoin="round" d="M9 10v7M12 10v7M15 10v7" />
+					</svg>
+					<span class="text-lg font-black text-secondary leading-none">Aluga Caçamba SP</span>
+				</a>
+				
+				<!-- Desktop Nav -->
+				<nav class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-650">
+					<a href="/" class="hover:text-secondary hover:scale-105 active:scale-95 transition-all duration-200">Início</a>
+					<a href="/servicos" class="hover:text-secondary hover:scale-105 active:scale-95 transition-all duration-200">Serviços</a>
+					<a href="/sobre" class="hover:text-secondary hover:scale-105 active:scale-95 transition-all duration-200">Sobre Nós</a>
+					<a href="/blog" class="hover:text-secondary hover:scale-105 active:scale-95 transition-all duration-200">Blog</a>
+					<a href="/contato" class="hover:text-secondary hover:scale-105 active:scale-95 transition-all duration-200">Contato</a>
+				</nav>
+				
+				<!-- Header Button (Desktop) -->
+				<div class="hidden md:block">
+					<a href={SITE_CONFIG.whatsapp.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-primary text-accent hover:bg-yellow-400 hover:scale-105 hover:shadow-lg hover:shadow-primary/10 active:scale-95 transition-all duration-200">
+						<!-- Custom WhatsApp SVG -->
+						<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0 fill-accent" viewBox="0 0 24 24">
+							<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.5-5.719-1.455L0 24zm6.59-4.846c1.6.95 3.498 1.453 5.418 1.454h.005c5.548 0 10.061-4.515 10.064-10.067.002-2.69-1.043-5.22-2.943-7.123C17.23 1.516 14.7 1.011 12.008 1.01 6.458 1.01 1.947 5.524 1.944 11.077c-.001 1.916.501 3.788 1.457 5.4l-.956 3.493 3.585-.94c1.552.846 3.298 1.291 5.068 1.291z M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+						</svg>
+						Chamar WhatsApp
+					</a>
+				</div>
+
+				<!-- Mobile Menu Button (Hamburger) -->
+				<button id="menu-btn" class="md:hidden flex items-center justify-center p-2 rounded-xl border border-slate-200 text-slate-800 hover:bg-slate-100 transition-all active:scale-95" aria-label="Abrir Menu">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+					</svg>
+				</button>
+			</div>
+		</header>
+
+		<!-- Mobile Menu Drawer (Fixed, Backdrop-blur, High Contrast bg-accent) -->
+		<div id="mobile-menu" class="fixed inset-0 z-[999] bg-accent/98 backdrop-blur-lg hidden flex-col p-8 justify-between transition-opacity duration-300">
+			<div>
+				<!-- Header Row inside Mobile Menu -->
+				<div class="flex items-center justify-between mb-16">
+					<div class="flex items-center gap-3 font-black text-xl tracking-tight text-white">
+						<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-secondary bg-primary p-2.5 rounded-xl flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M2 6h20v2H2z" />
+							<path stroke-linecap="round" stroke-linejoin="round" d="M4 8l3 11h10l3-11" />
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9 10v7M12 10v7M15 10v7" />
+						</svg>
+						<span>Aluga Caçamba SP</span>
+					</div>
+					<button id="close-btn" class="p-3 text-white hover:text-primary transition-all active:scale-95 text-3xl font-black leading-none" aria-label="Fechar Menu">
+						&times;
+					</button>
+				</div>
+
+				<!-- Navigation Links -->
+				<nav class="flex flex-col gap-8 text-center">
+					<a href="/" class="mobile-menu-link text-3xl font-black text-white hover:text-primary tracking-tighter transition-colors">Início</a>
+					<a href="/servicos" class="mobile-menu-link text-3xl font-black text-white hover:text-primary tracking-tighter transition-colors">Serviços</a>
+					<a href="/sobre" class="mobile-menu-link text-3xl font-black text-white hover:text-primary tracking-tighter transition-colors">Sobre Nós</a>
+					<a href="/blog" class="mobile-menu-link text-3xl font-black text-white hover:text-primary tracking-tighter transition-colors">Blog</a>
+					<a href="/contato" class="mobile-menu-link text-3xl font-black text-white hover:text-primary tracking-tighter transition-colors">Contato</a>
+				</nav>
+			</div>
+
+			<!-- Mobile Menu Footer CTA -->
+			<div class="space-y-4">
+				<a href={SITE_CONFIG.whatsapp.link} target="_blank" rel="noopener noreferrer" class="w-full py-5 rounded-2xl font-black text-lg text-center bg-primary text-accent hover:bg-yellow-400 hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center gap-3 shadow-xl shadow-primary/20">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0 fill-accent" viewBox="0 0 24 24">
+						<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.5-5.719-1.455L0 24zm6.59-4.846c1.6.95 3.498 1.453 5.418 1.454h.005c5.548 0 10.061-4.515 10.064-10.067.002-2.69-1.043-5.22-2.943-7.123C17.23 1.516 14.7 1.011 12.008 1.01 6.458 1.01 1.947 5.524 1.944 11.077c-.001 1.916.501 3.788 1.457 5.4l-.956 3.493 3.585-.94c1.552.846 3.298 1.291 5.068 1.291z M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+					</svg>
+					WhatsApp Orçamento
+				</a>
+			</div>
+		</div>
+
+		<!-- Main Content -->
+		<main class="flex-grow">
+			<slot />
+		</main>
+
+		<!-- Footer (Phase 5 Polish: pt-24, High Contrast text-slate-150, text-primary headers) -->
+		<footer class="bg-slate-900 text-slate-150 pt-24 pb-16 border-t border-slate-800">
+			<div class="container mx-auto px-6 md:px-12">
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+					<div class="md:col-span-2">
+						<a href="/" class="inline-flex items-center gap-2.5 font-black text-xl tracking-tight text-white mb-4 hover:scale-105 transition-transform duration-200">
+							<!-- Custom construction dumpster/skip SVG Logo (Yellow bg, Blue container) -->
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-secondary bg-primary p-2 rounded-lg flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M2 6h20v2H2z" />
+								<path stroke-linecap="round" stroke-linejoin="round" d="M4 8l3 11h10l3-11" />
+								<path stroke-linecap="round" stroke-linejoin="round" d="M9 10v7M12 10v7M15 10v7" />
+							</svg>
+							<span>Aluga Caçamba SP</span>
+						</a>
+						<p class="text-sm max-w-sm leading-relaxed text-slate-150">
+							Sua melhor opção em aluguel de caçambas estacionárias para entulho. Serviço rápido, seguro, regulamentado e com compromisso ambiental.
+						</p>
+					</div>
+					<div>
+						<!-- Title in text-primary -->
+						<h4 class="font-extrabold text-primary text-sm tracking-wider uppercase mb-4">Links Rápidos</h4>
+						<ul class="space-y-3 text-sm">
+							<li><a href="/" class="text-slate-300 hover:text-primary hover:pl-1 transition-all duration-200 block">Início</a></li>
+							<li><a href="/servicos" class="text-slate-300 hover:text-primary hover:pl-1 transition-all duration-200 block">Nossos Serviços</a></li>
+							<li><a href="/sobre" class="text-slate-300 hover:text-primary hover:pl-1 transition-all duration-200 block">Sobre Nós</a></li>
+							<li><a href="/blog" class="text-slate-300 hover:text-primary hover:pl-1 transition-all duration-200 block">Blog</a></li>
+							<li><a href="/contato" class="text-slate-300 hover:text-primary hover:pl-1 transition-all duration-200 block">Contato</a></li>
+						</ul>
+					</div>
+					<div>
+						<!-- Title in text-primary -->
+						<h4 class="font-extrabold text-primary text-sm tracking-wider uppercase mb-4">Contato & Suporte</h4>
+						<p class="text-sm text-slate-150 leading-relaxed mb-4">
+							Atendimento em toda a Região Metropolitana.
+						</p>
+						<p class="text-xs font-bold text-slate-300 uppercase tracking-widest mb-1">Telefone / Fixo:</p>
+						<p class="text-white text-base font-bold mb-3 hover:text-primary transition-colors cursor-pointer">{SITE_CONFIG.phone.display}</p>
+						<p class="text-xs font-bold text-slate-300 uppercase tracking-widest mb-1">WhatsApp 24h:</p>
+						<a href={SITE_CONFIG.whatsapp.link} target="_blank" rel="noopener noreferrer" class="text-primary text-lg font-extrabold hover:underline block">{SITE_CONFIG.whatsapp.display}</a>
+					</div>
+				</div>
+				
+				<div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+					<p class="text-xs text-slate-300 text-center md:text-left">
+						© 2026 Aluga Caçamba SP. Todos os direitos reservados. Licenciado pelos órgãos de limpeza urbana e ambientais.
+					</p>
+					<div class="flex gap-6 text-xs text-slate-300">
+						<a href="/blog/como-descartar-entulho" class="hover:text-primary transition-colors">Diretrizes de Descarte</a>
+						<a href="/privacidade" class="hover:text-primary transition-colors">Privacidade</a>
+						<a href="/termos" class="hover:text-primary transition-colors">Termos</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Floating WhatsApp Widget -->
+		<WhatsAppBtn />
+
+		<!-- JS Script for mobile drawer trigger and locking body overflow -->
+		<script>
+			const menuBtn = document.getElementById('menu-btn');
+			const closeBtn = document.getElementById('close-btn');
+			const mobileMenu = document.getElementById('mobile-menu');
+			const mobileLinks = document.querySelectorAll('.mobile-menu-link');
+
+			function openMenu() {
+				if (mobileMenu) {
+					mobileMenu.classList.remove('hidden');
+					mobileMenu.classList.add('flex');
+					document.body.style.overflow = 'hidden';
+				}
+			}
+
+			function closeMenu() {
+				if (mobileMenu) {
+					mobileMenu.classList.remove('flex');
+					mobileMenu.classList.add('hidden');
+					document.body.style.overflow = '';
+				}
+			}
+
+			menuBtn?.addEventListener('click', openMenu);
+			closeBtn?.addEventListener('click', closeMenu);
+			mobileLinks.forEach(link => {
+				link.addEventListener('click', closeMenu);
+			});
+		</script>
+	</body>
+</html>
+
+<style is:global>
+	/* Auto-apply breathing room padding to all direct sections of the main tag */
+	main > section {
+		@apply py-24 md:py-32;
+	}
+</style>
