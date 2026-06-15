@@ -36,6 +36,10 @@ const { Content } = await service.render();
 			<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start max-w-6xl mx-auto">
 				<!-- Left Column: Specs box + content (lg:col-span-2) -->
 				<div class="lg:col-span-2 space-y-12">
+					{service.data.image && (
+						<img src={service.data.image} alt={service.data.title} class="w-full h-[300px] sm:h-[400px] object-cover rounded-3xl shadow-lg border border-slate-200 hover:scale-[1.01] transition duration-300" />
+					)}
+
 					<!-- Hero and Metadata specs box (White theme with dark labels) -->
 					<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 bg-white text-slate-800 p-8 rounded-3xl border border-slate-200 shadow-md hover:scale-102 transition-transform duration-300">
 						<div>
