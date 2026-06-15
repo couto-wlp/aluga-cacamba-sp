@@ -4,6 +4,7 @@ description: "Aluguel de caçamba compacta de 3 metros cúbicos para pequenas re
 capacity: "3 metros cúbicos (~30 carrinhos de mão)"
 dimensions: "1,20m (L) x 2,00m (C) x 1,25m (A)"
 priceInfo: "Sob consulta (valores diferenciados por região)"
+image: "/cacamba-3m.png"
 ---
 
 A caçamba estacionária de 3m³ é a melhor escolha para projetos de pequeno porte onde o espaço na rua ou calçada é limitado.
