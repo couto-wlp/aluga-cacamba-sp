@@ -4,6 +4,7 @@ description: "Aluguel de caçamba grande de 5 metros cúbicos em São Paulo. Per
 capacity: "5 metros cúbicos (~50 carrinhos de mão)"
 dimensions: "1,60m (L) x 2,75m (C) x 1,30m (A)"
 priceInfo: "Sob consulta (valores diferenciados por região)"
+image: "/cacamba-5m.png"
 ---
 
 A caçamba estacionária de 5m³ é a nossa maior caçamba padrão, oferecendo máxima capacidade para descarte volumoso de entulho.
