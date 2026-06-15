@@ -4,6 +4,7 @@ description: "Aluguel de caçamba padrão de 4 metros cúbicos em São Paulo. O 
 capacity: "4 metros cúbicos (~40 carrinhos de mão)"
 dimensions: "1,45m (L) x 2,50m (C) x 1,25m (A)"
 priceInfo: "Sob consulta (valores diferenciados por região)"
+image: "/cacamba-4m.png"
 ---
 
 A caçamba estacionária de 4m³ é o modelo mais utilizado no mercado de construção civil de São Paulo, sendo ideal para reformas gerais.
